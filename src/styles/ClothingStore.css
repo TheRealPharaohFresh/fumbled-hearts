@@ -1,0 +1,7 @@
+.store{position:relative;min-height:100vh;overflow:hidden}
+.store__backdrop{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1.05) contrast(1.02)}
+.store__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.55),rgba(15,23,42,.35))}
+.store__content{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:7rem 1.25rem 3rem}
+.store__heading{margin:0 0 1.25rem;color:#f8fafc;font-size:2rem;letter-spacing:.02em}
+.store__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem}
+@media (min-width:720px){.store__content{padding:7rem 1.5rem 4rem}.store__heading{font-size:2.25rem}}
