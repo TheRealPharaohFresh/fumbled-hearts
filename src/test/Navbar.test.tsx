@@ -1,10 +1,10 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Navbar from '../components/Navbar'
 
 // Mock window.location
-delete (window as any).location
-window.location = { pathname: '/' } as any
+delete (window as { location?: Location }).location
+window.location = { pathname: '/' } as Location
 
 describe('Navbar Component', () => {
   it('renders the Fumbled Hearts logo/brand', () => {
