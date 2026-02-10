@@ -4,7 +4,7 @@ import '../styles/Navbar.css'
 const links = [
   { label: 'Home', href: '#home' },
   { label: 'New Arrivals', href: '#clothing' },
-  { label: 'Pricing', href: '#pricing' },
+  // { label: 'Pricing', href: '#pricing' },
   { label: 'Testimonials', href: '#testimonials' },
     { label: 'Contact', href: '#contact' },
 ]

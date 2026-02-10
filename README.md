@@ -40,7 +40,9 @@ Fumbled Hearts is more than just a fashion brand—it's a movement. We believe i
 - **Multi-Color Product Selection**: Interactive color swatches for each product
 - **Real-time Inventory**: Automatic out-of-stock detection and display
 - **Dynamic Product Cards**: Smooth transitions and hover effects
-- **Responsive Design**: Perfect on mobile, tablet, and desktop
+- **📱 Mobile-First Responsive Design**: Optimized UX from 320px to 4K displays
+- **Touch-Optimized**: Native-feeling mobile interactions with proper tap highlights
+- **Fluid Typography**: Perfect text sizing across all screen sizes
 
 ### 👕 **Product Collections**
 - **Hoodies** (Volume 1 & 2): Available in 10+ colors
@@ -69,10 +71,10 @@ Purple • Olive Green • Grey • Navy Blue • Orange • Burnt Orange
 | Category | Technologies |
 |----------|-------------|
 | **Frontend** | React 19, TypeScript 5.9, Vite 7 |
-| **Styling** | CSS3, Modern CSS Variables |
+| **Styling** | CSS3, Mobile-First Responsive Design, CSS Variables |
 | **Testing** | Vitest, React Testing Library, jsdom |
 | **Dev Tools** | ESLint, TypeScript ESLint, Vite HMR |
-| **CI/CD** | GitHub Actions, Multi-version testing |
+| **CI/CD** | GitHub Actions, Multi-version testing, Vercel |
 | **Assets** | PNG, JPG/JPEG support with custom declarations |
 
 </div>
@@ -136,10 +138,11 @@ fumbled-hearts/
 │   │   ├── ClothingStore.tsx
 │   │   ├── Contact.tsx
 │   │   └── Testimonials.tsx
-│   ├── 📂 styles/           # CSS modules
+│   ├── 📂 styles/           # Responsive CSS modules
 │   ├── 📂 test/             # Test suites (27 tests)
 │   ├── 📂 types/            # TypeScript declarations
 │   └── App.tsx              # Root component
+├── 📄 RESPONSIVE_DESIGN.md  # Mobile-first design docs
 ├── 📄 package.json
 ├── 📄 vite.config.ts
 ├── 📄 vitest.config.ts
@@ -187,8 +190,37 @@ Automated deployment pipeline powered by GitHub Actions:
    - Uploads build artifacts
 
 3. **Deploy Stage** *(main branch only)*
-   - Automatic deployment to production
-   - Ready for Vercel, Netlify, or AWS S3
+   - Vercel deployment with CLI
+   - Production environment configuration
+   - Automatic live updates
+
+### 🔑 Deployment Setup
+
+To enable automated Vercel deployments via GitHub Actions:
+
+1. Get your Vercel token from https://vercel.com/account/tokens
+2. Add `VERCEL_TOKEN` to GitHub repository secrets
+3. Push to main branch to trigger automatic deployment
+
+---
+
+## 📱 Responsive Design
+
+**Comprehensive mobile-first design** ensures consistent UX across all devices:
+
+- 📱 **Mobile**: 320px - 767px (Single column layouts, touch-optimized)
+- 📲 **Tablet**: 768px - 1023px (Multi-column grids, balanced spacing)
+- 🖥️ **Desktop**: 1024px+ (Full layouts, hover interactions)
+
+**Key Features:**
+- Fluid typography with CSS `clamp()`
+- Auto-fill responsive grids
+- Touch-friendly tap targets (44x44px minimum)
+- Native mobile interactions with proper feedback
+- Hardware-accelerated animations
+- Perfect rendering from iPhone SE to 4K displays
+
+📖 **[Full Documentation](RESPONSIVE_DESIGN.md)** - Detailed breakpoint strategy, component-specific optimizations, and performance considerations.
 
 ---
 
@@ -200,15 +232,24 @@ Automated deployment pipeline powered by GitHub Actions:
 - **Neutral**: Clean whites and sophisticated blacks
 
 ### Typography
-- Modern sans-serif fonts
-- Responsive sizing with `clamp()`
-- Optimal readability across devices
+- Modern sans-serif fonts (Manrope)
+- Responsive sizing with `clamp()` for fluid typography
+- Optimal readability across all device sizes
+
+### 📱 Responsive Design
+- **Mobile-First Approach**: Built from 320px up
+- **Breakpoints**: 480px, 640px, 768px, 1024px, 1280px
+- **Touch-Optimized**: Native mobile interactions
+- **Flexible Grids**: Auto-fill responsive layouts
+- **Fluid Typography**: Scales smoothly across viewports
+- **Performance**: Hardware-accelerated animations
 
 ### UX Principles
-- **Intuitive Navigation**: Easy browsing experience
-- **Visual Feedback**: Hover states and transitions
+- **Intuitive Navigation**: Easy browsing on any device
+- **Visual Feedback**: Hover and active states for all interactions
 - **Accessibility**: Semantic HTML and ARIA labels
-- **Performance**: Optimized images and lazy loading
+- **Touch-Friendly**: 44x44px minimum touch targets
+- **Performance**: Optimized images and smooth transitions
 
 ---
 
