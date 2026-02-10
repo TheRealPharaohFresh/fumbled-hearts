@@ -41,6 +41,39 @@
   background-color: #eff6ff;
 }
 
+.navbar__cart {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.35rem;
+  transition: transform 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar__cart:hover,
+.navbar__cart:active {
+  transform: scale(1.1);
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+
 .navbar__logo {
   display: flex;
   align-items: center;

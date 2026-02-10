@@ -25,8 +25,27 @@ import pinktshirt from '../assets/FumbledHeartsTops/T-Shirts/PinkTShirtFront.PNG
 import purpletshirt from '../assets/FumbledHeartsTops/T-Shirts/PurpleTShirtFront.PNG'
 
 import ProductCard from '../components/ProductCard'
+import { useCart } from '../context/CartContext'
 
 export default function ClothingStore() {
+  const { addItem } = useCart()
+
+  const handleAddToCart = ({ title, color, price, sku }: { title: string; color: string; price: number | string; sku?: string }) => {
+    // Find the image for the selected color
+    const product = sampleProducts.find(p => p.title === title)
+    const image = product?.imagesByColor[color as keyof typeof product.imagesByColor]
+    
+    if (image) {
+      addItem({
+        title,
+        color,
+        price: typeof price === 'string' ? parseFloat(price.replace('$', '')) : price,
+        image,
+        sku,
+      })
+    }
+  }
+
   // Example product data. Replace images with real color-specific assets when available.
   const sampleProducts = [
     {
@@ -102,11 +121,6 @@ export default function ClothingStore() {
     },
   ]
 
-  const handleAddToCart = (payload: { id: string; title: string; price: number; color: string }) => {
-    // TODO: integrate with real cart later
-    console.log('Add to cart:', payload)
-  }
-
   return (
     <section className="store" aria-label="Clothing Store">
       <div className="store__backdrop" style={{ backgroundImage: `url(${bgImage})` }} />
@@ -121,7 +135,7 @@ export default function ClothingStore() {
               title={p.title}
               price={p.price}
               imagesByColor={p.imagesByColor}
-              onAddToCart={(item) => handleAddToCart({ id: p.id, title: item.title, price: p.price, color: item.color })}
+              onAddToCart={handleAddToCart}
             />
           ))}
         </div>

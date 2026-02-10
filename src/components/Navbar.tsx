@@ -1,5 +1,6 @@
 import logo from '../assets/FumbledHearts Website Logo.png'
 import '../styles/Navbar.css'
+import { useCart } from '../context/CartContext'
 
 const links = [
   { label: 'Home', href: '#home' },
@@ -10,6 +11,8 @@ const links = [
 ]
 
 export default function Navbar() {
+  const { toggleCart, itemCount } = useCart()
+
   return (
     <header className="navbar">
       <div className="navbar__inner">
@@ -20,6 +23,15 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
+
+        <button 
+          className="navbar__cart" 
+          onClick={toggleCart}
+          aria-label={`Shopping cart with ${itemCount} items`}
+        >
+          🛒
+          {itemCount > 0 && <span className="navbar__cart-badge">{itemCount}</span>}
+        </button>
 
         <div className="navbar__logo" aria-label="Fumbled Hearts logo">
           <img src={logo} alt="Fumbled Hearts logo" className="navbar__logo-img" />

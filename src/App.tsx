@@ -1,9 +1,12 @@
 import './styles/App.css'
 import Navbar from './components/Navbar'
+import Cart from './components/Cart'
 import ClothingStore from './pages/ClothingStore'
 import HomePage from './pages/HomePage'
 import Testimonials from './pages/Testimonials'
 import Contact from './pages/Contact'
+import Checkout from './pages/Checkout'
+import { CartProvider } from './context/CartContext'
 import { useEffect, useState } from 'react'
 
 function App() {
@@ -16,8 +19,9 @@ function App() {
   }, [])
 
   return (
-    <>
+    <CartProvider>
       <Navbar />
+      <Cart />
       <main className="app-shell">
         {route === 'clothing' ? (
           <ClothingStore />
@@ -25,11 +29,13 @@ function App() {
           <Testimonials />
         ) : route === 'contact' ? (
           <Contact />
+        ) : route === 'checkout' ? (
+          <Checkout />
         ) : (
           <HomePage />
         )}
       </main>
-    </>
+    </CartProvider>
   )
 }
 
