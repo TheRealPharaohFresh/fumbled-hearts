@@ -8,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.2-61dafb?logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.2-646cff?logo=vite)](https://vitejs.dev/)
-[![Tests](https://img.shields.io/badge/Tests-27%20passing-success)](src/test)
+[![Tests](https://img.shields.io/badge/Tests-40%2B%20passing-success)](src/test)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ![Fumbled Hearts Banner](src/assets/Fumbled%20hearts%20on%20a%20brick%20wall.png)
@@ -37,12 +37,20 @@ Fumbled Hearts is more than just a fashion brand—it's a movement. We believe i
 ## 🚀 Features
 
 ### 🛍️ **E-Commerce Experience**
+- **🛒 Full Shopping Cart**: Add products, adjust quantities, remove items with real-time updates
+- **🎨 Color Tracking**: Each item displays its selected color in cart and checkout
+- **💳 Multi-Step Checkout**: Professional 3-step flow (Shipping → Payment → Confirmation)
+- **📧 Order Management**: Email-based order system with complete order details
+- **💰 Smart Pricing**: Automatic 8% tax calculation and FREE shipping over $100
+- **🎯 Order Numbers**: Unique order tracking numbers (FH + timestamp)
 - **Multi-Color Product Selection**: Interactive color swatches for each product
 - **Real-time Inventory**: Automatic out-of-stock detection and display
 - **Dynamic Product Cards**: Smooth transitions and hover effects
 - **📱 Mobile-First Responsive Design**: Optimized UX from 320px to 4K displays
 - **Touch-Optimized**: Native-feeling mobile interactions with proper tap highlights
 - **Fluid Typography**: Perfect text sizing across all screen sizes
+- **💾 Cart Persistence**: LocalStorage-backed cart (survives page refreshes)
+- **💖 Broken Heart Theme**: Professional pink, red, and dark gray color palette throughout
 
 ### 💬 **Customer Engagement**
 - **Professional Contact Page**: Elegant contact form with direct email integration
@@ -63,10 +71,12 @@ Purple • Olive Green • Grey • Navy Blue • Orange • Burnt Orange
 ```
 
 ### 🧪 **Quality Assurance**
-- **27 Comprehensive Tests**: Full test coverage across components
-- **Automated CI/CD**: GitHub Actions pipeline
-- **Type Safety**: 100% TypeScript implementation
-- **Modern Testing**: Vitest + React Testing Library
+- **40+ Comprehensive Tests**: Full test coverage across all components including cart and checkout
+- **Cart Testing**: Add/remove items, quantity updates, pricing calculations, color tracking
+- **Checkout Testing**: Form validation, step progression, order generation, email formatting
+- **Automated CI/CD**: GitHub Actions pipeline with multi-version Node.js testing
+- **Type Safety**: 100% TypeScript implementation with strict mode
+- **Modern Testing**: Vitest + React Testing Library + jsdom
 
 ---
 
@@ -137,15 +147,21 @@ fumbled-hearts/
 │   │   ├── FumbledHeartsTrackSuits/
 │   │   └── Testemonials/
 │   ├── 📂 components/       # React components
-│   │   ├── Navbar.tsx
-│   │   └── ProductCard.tsx
+│   │   ├── Navbar.tsx       # Navigation with cart icon
+│   │   ├── ProductCard.tsx  # Product display with add to cart
+│   │   └── Cart.tsx         # Sliding cart drawer
+│   ├── 📂 context/          # React Context providers
+│   │   └── CartContext.tsx  # Cart state management
 │   ├── 📂 pages/            # Page components
 │   │   ├── HomePage.tsx
 │   │   ├── ClothingStore.tsx
+│   │   ├── Checkout.tsx     # Multi-step checkout
 │   │   ├── Contact.tsx
 │   │   └── Testimonials.tsx
 │   ├── 📂 styles/           # Responsive CSS modules
 │   │   ├── App.css
+│   │   ├── Cart.css         # Sliding cart styles
+│   │   ├── Checkout.css     # Checkout process
 │   │   ├── ClothingStore.css
 │   │   ├── Contact.css
 │   │   ├── HomePage.css
@@ -154,6 +170,8 @@ fumbled-hearts/
 │   │   └── Testimonials.css
 │   ├── 📂 test/             # Test suites (27 tests)
 │   ├── 📂 types/            # TypeScript declarations
+│   │   ├── assets.d.ts
+│   │   └── cart.ts          # Cart & Order types
 │   └── App.tsx              # Root component
 ├── 📄 RESPONSIVE_DESIGN.md  # Mobile-first design docs
 ├── 📄 package.json

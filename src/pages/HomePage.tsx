@@ -24,7 +24,7 @@ export default function HomePage() {
         </p>
         <div className="hero__actions">
           <a className="hero__button" href="#clothing">
-            Shop Now
+            💔 Shop Now
           </a>
         </div>
       </div>
