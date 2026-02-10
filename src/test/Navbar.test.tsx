@@ -3,8 +3,10 @@ import { render, screen } from '@testing-library/react'
 import Navbar from '../components/Navbar'
 
 // Mock window.location
-delete (window as { location?: Location }).location
-window.location = { pathname: '/' } as Location
+Object.defineProperty(window, 'location', {
+  writable: true,
+  value: { pathname: '/' },
+})
 
 describe('Navbar Component', () => {
   it('renders the Fumbled Hearts logo/brand', () => {
