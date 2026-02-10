@@ -10,7 +10,7 @@ const mockCartItems: CartItem[] = [
     id: 'test-hoodie-black-1',
     title: 'Test Hoodie',
     color: 'black',
-    price: 59.99,
+    price: 65,
     quantity: 2,
     image: '/test-image.jpg',
     sku: 'TEST-001'
@@ -19,7 +19,7 @@ const mockCartItems: CartItem[] = [
     id: 'test-tshirt-pink-1',
     title: 'Test T-Shirt',
     color: 'pink',
-    price: 29.99,
+    price: 50,
     quantity: 1,
     image: '/test-image2.jpg',
     sku: 'TEST-002'
@@ -51,35 +51,35 @@ describe('Cart Component', () => {
   })
 
   it('calculates subtotal correctly for multiple items', () => {
-    // Test calculation: (59.99 * 2) + (29.99 * 1) = 149.97
-    const subtotal = (59.99 * 2) + (29.99 * 1)
-    expect(subtotal).toBe(149.97)
+    // Test calculation: (65 * 2) + (50 * 1) = 180
+    const subtotal = (65 * 2) + (50 * 1)
+    expect(subtotal).toBe(180)
   })
 
   it('applies free shipping for orders over $100', () => {
-    const subtotal = 149.97
+    const subtotal = 180
     const shipping = subtotal >= 100 ? 0 : 9.99
     expect(shipping).toBe(0)
   })
 
   it('applies shipping cost for orders under $100', () => {
-    const subtotal = 59.99
+    const subtotal = 65
     const shipping = subtotal >= 100 ? 0 : 9.99
     expect(shipping).toBe(9.99)
   })
 
   it('calculates 8% tax correctly', () => {
-    const subtotal = 149.97
+    const subtotal = 180
     const tax = subtotal * 0.08
-    expect(tax).toBeCloseTo(11.9976, 2)
+    expect(tax).toBeCloseTo(14.4, 2)
   })
 
   it('calculates total with subtotal, shipping, and tax', () => {
-    const subtotal = 149.97
+    const subtotal = 180
     const shipping = 0 // Free shipping over $100
     const tax = subtotal * 0.08
     const total = subtotal + shipping + tax
-    expect(total).toBeCloseTo(161.9676, 2)
+    expect(total).toBeCloseTo(194.4, 2)
   })
 
   it('shows correct item quantity', () => {

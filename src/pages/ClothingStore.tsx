@@ -77,7 +77,7 @@ export default function ClothingStore() {
     {
       id: 't-shirts-001',
       title: 'Fumbled Hearts T-Shirts',
-      price: 25,
+      price: 50,
       imagesByColor: {
         'black': blacktshirt,
         'pink': pinktshirt,
@@ -90,7 +90,7 @@ export default function ClothingStore() {
     {
       id: 'hoodies-001',
       title: 'Fumbled Hearts Hoodies',
-      price: 40,
+      price: 65,
       imagesByColor: {
         'black': blackhoodie,
         'pink': undefined,
@@ -105,7 +105,7 @@ export default function ClothingStore() {
     {
       id: 'hoodies-002',
       title: 'Fumbled Hearts Hoodies Volume 2',
-      price: 40,
+      price: 65,
       imagesByColor: {
         'black': blackhoodie2,
         'pink': pinkhoodie2,

@@ -54,14 +54,14 @@ describe('Checkout Component', () => {
   })
 
   it('calculates order totals correctly', () => {
-    const subtotal = 149.99
+    const subtotal = 180
     const shipping = subtotal >= 100 ? 0 : 9.99
     const tax = subtotal * 0.08
     const total = subtotal + shipping + tax
     
     expect(shipping).toBe(0) // Free shipping over $100
-    expect(tax).toBeCloseTo(11.9992, 2)
-    expect(total).toBeCloseTo(161.9892, 2)
+    expect(tax).toBeCloseTo(14.4, 2)
+    expect(total).toBeCloseTo(194.4, 2)
   })
 
   it('generates unique order numbers', () => {
@@ -138,16 +138,16 @@ describe('Checkout Component', () => {
 
   it('formats order items correctly for email', () => {
     const items = [
-      { title: 'Hoodie', color: 'black', quantity: 2, price: 59.99 },
-      { title: 'T-Shirt', color: 'pink', quantity: 1, price: 29.99 }
+      { title: 'Hoodie', color: 'black', quantity: 2, price: 65 },
+      { title: 'T-Shirt', color: 'pink', quantity: 1, price: 50 }
     ]
     
     const orderItems = items.map(item => 
       `- ${item.title} (${item.color}) x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`
     )
     
-    expect(orderItems[0]).toBe('- Hoodie (black) x2 - $119.98')
-    expect(orderItems[1]).toBe('- T-Shirt (pink) x1 - $29.99')
+    expect(orderItems[0]).toBe('- Hoodie (black) x2 - $130.00')
+    expect(orderItems[1]).toBe('- T-Shirt (pink) x1 - $50.00')
   })
 
   it('displays order confirmation message', () => {
