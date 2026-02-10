@@ -44,6 +44,12 @@ Fumbled Hearts is more than just a fashion brand—it's a movement. We believe i
 - **Touch-Optimized**: Native-feeling mobile interactions with proper tap highlights
 - **Fluid Typography**: Perfect text sizing across all screen sizes
 
+### 💬 **Customer Engagement**
+- **Professional Contact Page**: Elegant contact form with direct email integration
+- **Testimonials Section**: Customer reviews with image uploads and star ratings
+- **Responsive Forms**: Mobile-optimized input fields and touch-friendly buttons
+- **Direct Communication**: Email integration (fumbledhearts1@gmail.com)
+
 ### 👕 **Product Collections**
 - **Hoodies** (Volume 1 & 2): Available in 10+ colors
 - **T-Shirts**: Classic designs in 6 vibrant colors
@@ -139,6 +145,13 @@ fumbled-hearts/
 │   │   ├── Contact.tsx
 │   │   └── Testimonials.tsx
 │   ├── 📂 styles/           # Responsive CSS modules
+│   │   ├── App.css
+│   │   ├── ClothingStore.css
+│   │   ├── Contact.css
+│   │   ├── HomePage.css
+│   │   ├── Navbar.css
+│   │   ├── ProductCard.css
+│   │   └── Testimonials.css
 │   ├── 📂 test/             # Test suites (27 tests)
 │   ├── 📂 types/            # TypeScript declarations
 │   └── App.tsx              # Root component
@@ -300,6 +313,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **The Real Pharaoh Fresh**
 - GitHub: [@TheRealPharaohFresh](https://github.com/TheRealPharaohFresh)
+- Email: [fumbledhearts1@gmail.com](mailto:fumbledhearts1@gmail.com)
+
+---
+
+## 📧 Contact
+
+Have questions or want to collaborate? Reach out to us:
+- 📧 **Email**: fumbledhearts1@gmail.com
+- 💬 **Response Time**: Within 24 hours
+- 🌐 **Social**: @fumbledhearts
 
 ---
 
