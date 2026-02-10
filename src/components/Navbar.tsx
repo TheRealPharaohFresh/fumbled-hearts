@@ -1,6 +1,6 @@
 import logo from '../assets/FumbledHearts Website Logo.png'
 import '../styles/Navbar.css'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../hooks/useCart'
 
 const links = [
   { label: 'Home', href: '#home' },

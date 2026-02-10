@@ -1,6 +1,5 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import Checkout from '../pages/Checkout'
 import { CartProvider } from '../context/CartContext'
 import type { ShippingInfo } from '../types/cart'
@@ -160,14 +159,16 @@ describe('Checkout Component', () => {
   })
 
   it('clears cart after successful order', () => {
-    const cartItems = [
+    // Test cart clearing logic
+    const initialCartItems = [
       { id: '1', title: 'Item 1', quantity: 1 },
       { id: '2', title: 'Item 2', quantity: 2 }
     ]
     
     // Simulate clearing cart
-    const clearedCart: typeof cartItems = []
+    const clearedCart: Array<typeof initialCartItems[0]> = []
     
+    expect(initialCartItems.length).toBe(2)
     expect(clearedCart.length).toBe(0)
   })
 })

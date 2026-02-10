@@ -1,34 +1,8 @@
-import { createContext, useContext, useReducer, useEffect } from 'react'
+import { useReducer, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import type { CartItem } from '../types/cart'
-
-interface CartState {
-  items: CartItem[]
-  isOpen: boolean
-}
-
-type CartAction =
-  | { type: 'ADD_ITEM'; payload: Omit<CartItem, 'id' | 'quantity'> }
-  | { type: 'REMOVE_ITEM'; payload: string }
-  | { type: 'UPDATE_QUANTITY'; payload: { id: string; quantity: number } }
-  | { type: 'CLEAR_CART' }
-  | { type: 'TOGGLE_CART' }
-  | { type: 'OPEN_CART' }
-  | { type: 'CLOSE_CART' }
-
-interface CartContextType extends CartState {
-  addItem: (item: Omit<CartItem, 'id' | 'quantity'>) => void
-  removeItem: (id: string) => void
-  updateQuantity: (id: string, quantity: number) => void
-  clearCart: () => void
-  toggleCart: () => void
-  openCart: () => void
-  closeCart: () => void
-  itemCount: number
-  subtotal: number
-}
-
-const CartContext = createContext<CartContextType | undefined>(undefined)
+import { CartContext } from './cart-context'
+import type { CartState, CartAction, CartContextType } from './cart-context'
 
 function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
@@ -156,12 +130,4 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
-}
-
-export function useCart() {
-  const context = useContext(CartContext)
-  if (!context) {
-    throw new Error('useCart must be used within CartProvider')
-  }
-  return context
 }

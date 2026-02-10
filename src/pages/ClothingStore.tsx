@@ -25,7 +25,7 @@ import pinktshirt from '../assets/FumbledHeartsTops/T-Shirts/PinkTShirtFront.PNG
 import purpletshirt from '../assets/FumbledHeartsTops/T-Shirts/PurpleTShirtFront.PNG'
 
 import ProductCard from '../components/ProductCard'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../hooks/useCart'
 
 export default function ClothingStore() {
   const { addItem } = useCart()
